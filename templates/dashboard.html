@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Smart Sensor Data</title></head>
+<body>
+  <h1>Smart Sensor Data</h1>
+  <div id="data">
+    Temperature: <span id="temp">--</span> °C<br>
+    Humidity: <span id="hum">--</span> %
+  </div>
+  <script>
+    function fetchData() {
+      fetch('/api/data')
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("temp").textContent = data.temperature;
+          document.getElementById("hum").textContent = data.humidity;
+        });
+    }
+    setInterval(fetchData, 2000);
+    fetchData();
+  </script>
+</body>
+</html>

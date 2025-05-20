@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Device Control</title></head>
+<body>
+  <h1>Control GPIO Device</h1>
+  <button onclick="toggle()">Toggle LED</button>
+  <script>
+    function toggle() {
+      fetch('/api/toggle')
+        .then(() => alert("Device toggled!"));
+    }
+  </script>
+</body>
+</html>
